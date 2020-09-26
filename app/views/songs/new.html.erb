@@ -6,6 +6,7 @@
   <%= f.number_field :length %>
 
   <h3>Artist Info:</h3>
+  <%# byebug %>
   <%= f.fields_for :artists do |artists_form| %>
     <%= artists_form.label :name %>
     <%= artists_form.text_field :name %>
