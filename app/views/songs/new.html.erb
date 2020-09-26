@@ -1,27 +1,73 @@
-<h1>Enter new Song Data:</h1>
-<%= form_with model: @song do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  <%= f.label :length %>
-  <%= f.number_field :length %>
+<section class="section">
+  <div class="container">
+    <div class="box">
+      <h1 class="title">Enter new Song Data:</h1>
+      <%= form_with model: @song do |f| %>
+        <div class="field">
+          <%= f.label :title, class: 'label' %>
+          <div class="control">
+            <%= f.text_field :title, class: 'input' %>
+          </div>
+        </div>
+        <div class="field">
+          <%= f.label :length, class: 'label' %>
+          <div class="control">
+            <%= f.number_field :length, class: 'input' %>
+          </div>
+        </div>
 
-  <h3>Artist Info:</h3>
-  <%# byebug %>
-  <%= f.fields_for :artists do |artists_form| %>
-    <%= artists_form.label :name %>
-    <%= artists_form.text_field :name %>
-  <% end %>
+        <h3 class="title is-4">Artist Info:</h3>
+        <%= f.fields_for :artists do |artists_form| %>
+          <div class="field">
+            <%= artists_form.label :name, class: 'label' %>
+            <div class="conrol">
+              <%= artists_form.text_field :name, class: 'input' %>
+            </div>
+          </div>
+        <% end %>
 
-  <h3>Album Info:</h3>
-  <%= f.fields_for :album do |album_form| %>
-    <%= album_form.label :title %>
-    <%= album_form.text_field :title %>
-  <% end %>
+        <h3 class="title is-4">Album Info:</h3>
+        <%= f.fields_for :album do |album_form| %>
+          <div class="field">
+            <%= album_form.label :title, class: 'label' %>
+            <div class="control">
+              <%= album_form.text_field :title, class: 'input' %>
+            </div>
+          </div>
+        <% end %>
 
-  <br>
-  <%= f.label :audio_file %>
-  <%= f.file_field :audio_file %>
-  <br>
+        <br>
+        <div class="field">
+          <%= f.label :audio_file, class: 'label' %>
+          <div class="control">
+            <div class="file has-name">
+              <label class="file-label">
+                <%= f.file_field :audio_file, class: 'file-input' %>
+                <span class="file-cta">
+                  <span class="file-label">
+                    Choose a File
+                  </span>
+                </span>
+                <span class="file-name" id="file-name">
+                  No file selected...
+                </span>
+              </label>
 
-  <%= f.submit %>
-<% end %>
+            </div>
+          </div>
+        </div>
+        <br>
+
+        <%= f.submit class: 'button is-primary' %>
+      <% end %>
+    </div>
+  </div>
+</section>
+<script>
+  let fileChooser = document.getElementById('song_audio_file');
+  let fileDisplay = document.getElementById('file-name')
+  fileChooser.addEventListener('change', e => {
+      let fileName = e.target.files[0].name;
+      fileDisplay.innerText = fileName;
+  }, false );
+</script>
