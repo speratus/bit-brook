@@ -17,6 +17,10 @@
     <%= album_form.label :title %>
     <%= album_form.text_field :title %>
   <% end %>
+
+  <br>
+  <%= f.label :audio_file %>
+  <%= f.file_field :audio_file %>
   <br>
 
   <%= f.submit %>

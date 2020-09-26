@@ -4,4 +4,10 @@
   <p>Artist: <%= s.artists[0].name %></p>
   <p>Album: <%= s.album.title %></p>
 
+  <% if s.audio_file.attached? %>
+    <p>Play Song:
+      <audio controls src="<%= url_for s.audio_file %>">Your browser does not support audio tags.</audio>
+    </p>
+  <% end %>
+
 <% end %>
