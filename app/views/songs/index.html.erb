@@ -1,0 +1,7 @@
+<h1>Available Songs:</h1>
+<% @songs.each do |s| %>
+  <h3><%= s.title %></h3>
+  <p>Artist: <%= s.artists[0].name %></p>
+  <p>Album: <%= s.album.title %></p>
+
+<% end %>
