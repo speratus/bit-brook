@@ -1,0 +1,22 @@
+<h1>Enter new Song Data:</h1>
+<%= form_with model: @song do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <%= f.label :length %>
+  <%= f.number_field :length %>
+
+  <h3>Artist Info:</h3>
+  <%= f.fields_for :artists do |artists_form| %>
+    <%= artists_form.label :name %>
+    <%= artists_form.text_field :name %>
+  <% end %>
+
+  <h3>Album Info:</h3>
+  <%= f.fields_for :album do |album_form| %>
+    <%= album_form.label :title %>
+    <%= album_form.text_field :title %>
+  <% end %>
+  <br>
+
+  <%= f.submit %>
+<% end %>
