@@ -1,0 +1,20 @@
+<section class="hero is-info">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title"><%= @album.title %></h1>
+      <h2 class="subtitle"><%= @album.artists[0].name %></h2>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <% @album.songs.each do |s| %>
+      <p class="title">
+        <%= s.title %>
+        <% if s.audio_file.attached? %>
+          <audio controls src="<%= url_for(s.audio_file) %>">Your browser does not support audio tags.</audio>
+        <% end %>
+      </p>
+    <% end %>
+  </div>
+</section>

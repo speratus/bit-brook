@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   resources :songs, only: [:index, :new, :create]
 
   resources :site, only: :index
+  resources :albums
 end

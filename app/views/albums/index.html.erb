@@ -1,0 +1,9 @@
+<section class="container">
+  <div class="content">
+    <% @albums.each do |a| %>
+      <p class="title">
+        <a href="<%= album_path(a) %>"><%= a.title %></a>
+      </p>
+    <% end %>
+  </div>
+</section>
