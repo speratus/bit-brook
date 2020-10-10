@@ -26,6 +26,8 @@ class SongsController < ApplicationController
 
     unless album.nil?
       @song.album = album
+    else
+      @song.album.artists << @song.artists.first
     end
 
     if @song.save

@@ -12,6 +12,9 @@
       <p class="title">
         <%= s.title %>
         <% if s.audio_file.attached? %>
+          <span class="icon">
+            <i class="las la-play-circle"></i>
+          </span>
           <audio controls src="<%= url_for(s.audio_file) %>">Your browser does not support audio tags.</audio>
         <% end %>
       </p>
